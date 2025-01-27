@@ -283,29 +283,7 @@
             <h3>My Education</h3>  
         </div>  
     </section>  
-    <style>
-      .section {
-        display: flex;
-        flex-direction: column; /* Display images vertically */
-        justify-content: center;
-        align-items: center;
-        background-color: #fefaf8; /* Light beige */
-        padding: 50px 20px;
-      }
 
-      .card {
-        width: 100%; /* Make each card 100% width */
-        margin-bottom: 20px; /* Add spacing between cards */
-      }
-
-      /* Media query for smaller screens (adjust breakpoint as needed) */
-      @media screen and (max-width: 600px) { 
-        .card { 
-          width: 100%; /* Ensure images take full width on smaller screens */
-        }
-      }
-    </style>
-    
     <!-- Separator -->  
     <hr>  
 
@@ -428,7 +406,67 @@
         </div>
     </div>
 </section> 
+<style>
+    /* ... your existing styles ... */
 
+    /* ========== Mobile Responsive Styles ========== */
+    @media (max-width: 768px) {
+        /* Top Section: Stack content vertically */
+        .top-section {
+            flex-direction: column;
+            height: auto;
+            padding: 40px 0;
+        }
+
+        /* Reduce font sizes */
+        .content h1 {
+            font-size: 2rem;
+        }
+        .content p {
+            font-size: 1rem;
+        }
+
+        /* My Journey & Education: Full-width cards */
+        .section .card {
+            width: 90%;
+            margin: 10px 0;
+        }
+
+        /* Skills/Awards/Certifications: Smaller grid items */
+        .skills-container, .awards-container, .certifications-container {
+            gap: 15px;
+        }
+        .skill, .awards-container div, .certifications-container div {
+            width: 120px;
+            padding: 15px;
+        }
+
+        /* Project Cards: Stack header and content */
+        .project-card {
+            flex-direction: column;
+        }
+        .project-header {
+            flex: 0 0 auto;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        /* Adjust image heights */
+        .section img {
+            height: 200px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        /* Further adjustments for tiny screens */
+        .content a {
+            padding: 8px 16px;
+        }
+        .skills-container, .awards-container, .certifications-container {
+            gap: 10px;
+        }
+    }
+</style>
 </div>
 </section>
 </body>  
