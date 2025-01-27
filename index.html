@@ -1,0 +1,416 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Portfolio</title>  
+    <style>  
+        /* Reset some margins and paddings */  
+        * {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+        }  
+
+        body {  
+            font-family: Arial, sans-serif;  
+            background-color: #fefaf8; /* Light beige background */  
+        }  
+
+        /* Full viewport height split */  
+        .top-section {  
+            display: flex;  
+            height: 100vh;  
+        }  
+
+        .content, .image {  
+            flex: 1;  
+            display: flex;  
+            flex-direction: column;  
+            justify-content: center;  
+            align-items: center;  
+            padding: 20px;  
+            text-align: center;  
+        }  
+
+        .content h1 {  
+            font-size: 3rem;  
+            margin-bottom: 10px;  
+            color: #a186be; /* Soft pastel purple */  
+        }  
+
+        .content p {  
+            font-size: 1.2rem;  
+            margin-bottom: 20px;  
+            color: #6d6875; /* Soft gray-purple */  
+        }  
+
+        .content a {  
+            display: inline-block;  
+            background-color: #d8c3a5; /* Light pastel brown */  
+            color: #fff;  
+            padding: 10px 20px;  
+            border-radius: 5px;  
+            text-decoration: none;  
+            font-weight: bold;  
+        }  
+
+        .image img {  
+            max-width: 100%;  
+            height: auto;  
+            object-fit: cover;  
+        }  
+
+        /* Line Separator */  
+        hr {  
+            border: 1px solid #ccc;  
+            margin: 40px 0;  
+        }  
+
+        /* Skills Section */  
+        .skills {  
+            text-align: center;  
+            padding: 50px 20px;  
+            background-color: #f8f0e3; /* Soft pastel cream */  
+        }  
+
+        .skills h2 {  
+            font-size: 2rem;  
+            margin-bottom: 20px;  
+            color: #8fbc8f; /* Soft pastel green */  
+        }  
+
+        .skills-container {  
+            display: flex;  
+            justify-content: center;  
+            flex-wrap: wrap;  
+            gap: 30px;  
+        }  
+
+        .skills-container .skill {  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center;  
+            justify-content: center;  
+            background-color: #ffe5ec; /* Soft pastel pink */  
+            border-radius: 10px;  
+            padding: 20px;  
+            width: 150px;  
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  
+        }  
+
+        .skills-container img {  
+            width: 50px;  
+            height: 50px;  
+            margin-bottom: 10px;  
+        }  
+
+        .skills-container p {  
+            font-size: 1rem;  
+            color: #6d6875;  
+        }  
+
+        /* Section: My Journey & My Education */  
+        .section {  
+            display: flex;  
+            justify-content: center;  
+            flex-wrap: wrap;  
+            background-color: #fefaf8; /* Light beige */  
+            padding: 50px 20px;  
+        }  
+
+        .section .card {  
+            background-color: #f8f0e3;  
+            border-radius: 10px;  
+            padding: 0; /* Remove padding for image size */  
+            width: 50%; /* Each card takes up 50% of the section */  
+            text-align: center;  
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  
+            position: relative; /* For positioning the image */  
+            overflow: hidden; /* Ensure overflow is hidden */  
+        }  
+
+        .section img {  
+            width: 100%; /* Full width for the image */  
+            height: 300px; /* Fixed height for the image */  
+            object-fit: cover; /* Maintain aspect ratio */  
+        }  
+
+        .section h3 {  
+            font-size: 1.5rem;  
+            color: #fff; /* Title color */  
+            position: absolute; /* Positioning the title */  
+            bottom: 10px; /* Position the title from the bottom */  
+            left: 50%; /* Center the title horizontally */  
+            transform: translateX(-50%); /* Adjust for center alignment */  
+            background-color: rgba(0, 0, 0, 0.5); /* Background for readability */  
+            padding: 10px; /* Padding around the title */  
+            border-radius: 5px; /* Rounded corners for the title */  
+        }  
+
+        /* Awards Section */  
+        .awards {  
+            text-align: center;  
+            padding: 50px 20px;  
+            background-color: #e5e5e5; /* Light gray background */  
+        }  
+
+        .awards h2 {  
+            font-size: 2rem;  
+            margin-bottom: 20px;  
+            color: #8fbc8f; /* Soft pastel green */  
+        }  
+
+        .awards-container {  
+            display: flex;  
+            justify-content: center;  
+            flex-wrap: wrap;  
+            gap: 30px;  
+        }  
+
+        .awards-container div {  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center;  
+            background-color: #ffe5ec; /* Soft pastel pink */  
+            border-radius: 10px;  
+            padding: 20px;  
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  
+            width: 140px; /* Adjust width as needed */  
+        }  
+
+        .awards-container img {  
+            width: 80px; /* Bigger size for award images */  
+            height: auto;  
+            margin-bottom: 10px;  
+        }  
+        
+        /* Certifications Section */  
+        .certifications {  
+            text-align: center;  
+            padding: 50px 20px;  
+            background-color: #f8e8e3; /* Light cream background */  
+        }  
+
+        .certifications h2 {  
+            font-size: 2rem;  
+            margin-bottom: 20px;  
+            color: #8fbc8f; /* Soft pastel green */  
+        }  
+
+        .certifications-container {  
+            display: flex;  
+            justify-content: center;  
+            flex-wrap: wrap;  
+            gap: 30px;  
+        }  
+
+        .certifications-container div {  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center;  
+            background-color: #ffe5ec; /* Soft pastel pink */  
+            border-radius: 10px;  
+            padding: 20px;  
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  
+            width: 140px; /* Adjust width as needed */  
+        }  
+
+        .certifications-container img {  
+            width: 80px; /* Bigger size for certification images */  
+            height: auto;  
+            margin-bottom: 10px;  
+        }  
+    </style>  
+</head>  
+<body>  
+
+    <!-- Top Section -->  
+    <div class="top-section">  
+        <div class="content">  
+            <h1>Hello, so good to see you!</h1>  
+            <p>I help SMBs thrive in the Digital Age.</p>  
+            <a href="mailto:shrithikau@gmail.com">Contact Me</a>  
+        </div>  
+        <div class="image">  
+            <img src="images/Shri.jpeg" alt="Your Photo">  
+        </div>  
+    </div>  
+
+    <!-- Separator -->  
+    <hr>  
+
+    <!-- Skills Section -->  
+    <section class="skills">  
+        <h2>Skills</h2>  
+        <div class="skills-container">  
+            <div class="skill">  
+                <img src="images/CRM.png" alt="Skill 1">  
+                <p>CRM Optimization</p>  
+            </div>  
+            <div class="skill">  
+                <img src="images/Marketing.png" alt="Skill 2">  
+                <p>Marketing</p>  
+            </div>  
+            <div class="skill">  
+                <img src="images/salesops.png" alt="Skill 3">  
+                <p>Sales Operations</p>  
+            </div> 
+            <div class="skill"> 
+                <img src="images/Product.png" alt="Skill 4">  
+                <p>Product</p>  
+            </div>
+            <div class="skill">  
+                <img src="images/sales.png" alt="Skill 5">  
+                <p>Sales</p>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Separator -->  
+    <hr>  
+
+    <!-- Section for My Journey and My Education -->  
+    <section class="section">  
+        <!-- My Journey -->  
+        <div class="card">  
+            <img src="images/myjourney.jpg" alt="My Journey">  
+            <h3>My Journey</h3>  
+        </div>  
+        <!-- My Education -->  
+        <div class="card">  
+            <img src="images/myeducation.jpg" alt="My Education">  
+            <h3>My Education</h3>  
+        </div>  
+    </section>  
+
+    <!-- Separator -->  
+    <hr>  
+
+    <section class="awards">
+        <h2>Awards</h2>
+        <div class="awards-container">
+            <div>
+                <img src="images/BE 1.png" alt="UNACADEMY" style="width: 120px; height: auto;">
+                <p>UNACADEMY- BEST EMPLOYEE -2021</p>
+            </div>
+            <div>
+                <img src="images/BE 1.png" alt="KAPTURE" style="width: 120px; height: auto;">
+                <p>KAPTURECRM- BEST TEAM LEAD 2019</p>
+            </div>
+            <div> 
+                <img src="images/BE 1.png" alt="SHOPCLUES" style="width: 120px; height: auto;">
+                <p>SHOPCLUES - BEST PERFORMER - 2017</p>
+            </div>
+        </div>
+    </section>
+            
+    </div>  
+    </section>  
+
+    <!-- Separator -->  
+    <hr>  
+
+ 
+<section class="projects" style="padding: 50px 20px; background-color: #f8f0e3;">
+    <h2>Projects & Case Studies</h2> 
+    <div class="project-container"> 
+        <div class="project-card">
+            <div class="project-header">
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #5a5a5a; margin: 0;">Ecommerce Product- (Shopclues) </h3>
+            </div>
+            <div class="project-content" style="background-color: #e0f7e0; padding: 15px; border-radius: 10px;"> 
+                <p style="font-size: 1rem; color: #6d6875; line-height: 1.6; margin: 0;">
+                    At Shopclues, I led the development and launch of the AdZone vendor ad platform. I started by conducting in-depth market research to understand the needs and pain points of our vendors. This research informed the design and development of the platform, which aimed to provide vendors with innovative and effective advertising solutions. Collaborating closely with engineering, design, and marketing teams, we successfully launched AdZone within six months, achieving a remarkable 30% increase in vendor adoption. Within a year, AdZone generated revenue of €50,000 per month, showcasing the platform's success in meeting the needs of our vendors and contributing to significant revenue growth for Shopclues.
+                </p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-header">
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #5a5a5a; margin: 0;">Pre-Sales and Operations -(Kapture) </h3>
+            </div>
+            <div class="project-content" style="background-color: #e0f7e0; padding: 15px; border-radius: 10px;"> 
+                <p style="font-size: 1rem; color: #6d6875; line-height: 1.6; margin: 0;">
+                    At Kapture CRM, I recognized the need to streamline our sales processes to improve efficiency and increase deal closures. I began by analyzing existing workflows, identifying bottlenecks, and implementing new CRM-driven processes. I also developed and delivered comprehensive sales training modules to equip our sales team with the knowledge and skills to effectively utilize the new processes. These initiatives resulted in a 40% increase in qualified lead conversion, a 20% increase in deal closures, and a remarkable 25% year-over-year revenue increase, demonstrating the significant impact of my efforts on the company's bottom line.
+                </p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-header">
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #5a5a5a; margin: 0;">Category Growth (Unacademy)</h3>
+            </div>
+            <div class="project-content" style="background-color: #e0f7e0; padding: 15px; border-radius: 10px;"> 
+                <p style="font-size: 1rem; color: #6d6875; line-height: 1.6; margin: 0;">
+                    At Unacademy, I spearheaded the expansion into new educational categories. I began by conducting thorough market research to identify areas with high demand and low competition. Next, I developed a strategy to onboard top-tier educators and curate high-quality content for these new categories. To ensure timely delivery and alignment with organizational objectives, I successfully managed over 15 concurrent programs. My efforts resulted in a significant 40% increase in user engagement and a 30% uplift in subscription revenue within a year, demonstrating the success of our expansion strategy.
+                </p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-header">
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #5a5a5a; margin: 0;"> Campaigns & Marketing (Emnify)</h3>
+            </div>
+            <div class="project-content" style="background-color: #e0f7e0; padding: 15px; border-radius: 10px;"> 
+                <p style="font-size: 1rem; color: #6d6875; line-height: 1.6; margin: 0;">
+                    Recognizing the potential of LinkedIn for lead generation at Emnify, I took the initiative to optimize our existing campaigns. I meticulously analyzed campaign data to identify areas for improvement, such as targeting, ad copy, and creative. Based on my findings, I implemented several changes, including refining our target audience, crafting compelling ad copy that resonated with potential customers, and A/B testing different ad creatives. These optimizations yielded impressive results: a 20% improvement in click-through rates and a 25% increase in lead generation, demonstrating the effectiveness of my data-driven approach
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+.project-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-card {
+    display: flex;
+    align-items: flex-start;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #e0f7e0; /* Apply background color to the entire card */
+}
+
+.project-header {
+    flex: 0 0 30%; 
+    border-radius: 10px; 
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-content {
+    flex: 1; 
+    padding: 15px; 
+}
+</style>
+<section class="certifications">
+    <h2>Certifications</h2>
+    <div class="certifications-container">
+        <div>
+            <img src="images/Inbound Marketing.png" alt="Inbound Marketing" style="width: 120px; height: auto;">
+            <p>Inbound Marketing</p>
+        </div>
+        <div>
+            <img src="images/LinkedIn Certificate.png" alt="LinkedIn ads" style="width: 120px; height: auto;">
+            <p>LinkedIn ads</p>
+        </div>
+        <div> 
+            <img src="images/Google ads.png" alt="Google ads" style="width: 120px; height: auto;">
+            <p>Google ads</p> 
+        </div>
+    </div>
+</section> 
+
+</div>
+</section>
+</body>  
+</html>
