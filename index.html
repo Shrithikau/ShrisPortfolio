@@ -8,7 +8,7 @@
     <style>
         /* ===== Base Styles ===== */
         body {  
-            font-family: 'DM Sans', Arial, sans-serif;  /* DM Sans is now the primary font */
+            font-family: 'DM Sans', Arial, sans-serif;
             background-color: #fefaf8; 
         }  
 
@@ -18,9 +18,24 @@
             height: 100vh;  
         }  
 
-        /* Add other existing styles below... */
-    </style>
-</head>
+        .content, .image {  
+            flex: 1;  
+            display: flex;  
+            flex-direction: column;  
+            justify-content: center;  
+            align-items: center;  
+            padding: 20px;  
+            text-align: center;  
+        }  
+
+        .content h1 {  
+            font-size: 3rem;  
+            margin-bottom: 10px;  
+            color: #a186be; 
+        }  
+
+        /* ... (keep all other existing styles) ... */
+
 
         .content, .image {  
             flex: 1;  
