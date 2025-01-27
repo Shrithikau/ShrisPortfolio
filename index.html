@@ -283,7 +283,29 @@
             <h3>My Education</h3>  
         </div>  
     </section>  
+    <style>
+    .section {
+    display: flex;
+    flex-direction: column; /* Display images vertically */
+    justify-content: center;
+    align-items: center;
+    background-color: #fefaf8; /* Light beige */
+    padding: 50px 20px;
+      }
 
+    .card {
+    width: 100%; /* Make each card 100% width */
+    margin-bottom: 20px; /* Add spacing between cards */
+      }
+
+    /* Media query for smaller screens (adjust breakpoint as needed) */
+  @media screen and (max-width: 600px) { 
+    .card { 
+      width: 100%; /* Ensure images take full width on smaller screens */
+    }
+  }
+    </style>
+    
     <!-- Separator -->  
     <hr>  
 
@@ -307,29 +329,6 @@
             
     </div>  
     </section>  
-  .section {
-    display: flex;
-    flex-direction: column; /* Display images vertically */
-    justify-content: center;
-    align-items: center;
-    background-color: #fefaf8; /* Light beige */
-    padding: 50px 20px;
-  }
-
-  .card {
-    width: 100%; /* Make each card 100% width */
-    margin-bottom: 20px; /* Add spacing between cards */
-  }
-
-  /* Media query for smaller screens (adjust breakpoint as needed) */
-  @media screen and (max-width: 600px) { 
-    .card { 
-      width: 100%; /* Ensure images take full width on smaller screens */
-    }
-  }
-</style>
-    <!-- Separator -->  
-    <hr>  
 
  
 <section class="projects" style="padding: 50px 20px; background-color: #f8f0e3;">
